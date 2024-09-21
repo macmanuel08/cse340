@@ -76,12 +76,12 @@ img {
   top: 50%;
   left: 30px;
   transform: translateY(-50%);
-  background-color: #ffffff88;
-  padding: 10px;
+  background-color: #ffffffdb;
+  padding: 30px;
 }
 
 .hero-text-box h2, .hero-text-box li {
-  color: var(--main-accent);
+  color: #166f81;
 }
 
 .hero-text-box h2 {margin-bottom: 5px;}
