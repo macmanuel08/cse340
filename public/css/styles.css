@@ -148,6 +148,8 @@ img {
     background-position: 0 0, 0 0, -50px -50px, 50px 50px;
   }
 
+  body h1 {font-size: 50px;}
+
   #wrapper {
     border-radius: 10px;
     margin-top: 1rem;
