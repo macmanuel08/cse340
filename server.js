@@ -27,7 +27,10 @@ app.use(static)
 
 // Index route
 app.get("/", (req, res) => {
-  res.render("index", {title: "Home"})
+  res.render("index", {
+    title: "Home",
+    welcomeMessage: "Welcome to CSE Motors!"
+  })
 })
 
 /* ***********************

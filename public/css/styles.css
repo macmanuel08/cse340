@@ -4,3 +4,209 @@
 *:after {
   box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body, body a {color: #333333;}
+
+body h1, body h2, body h3, body h4, body h5, body h6 {
+  font-family: "Averia Serif Libre", serif;
+  margin: 0 0 15px;
+}
+
+#wrapper {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 1em;
+}
+
+#wrapper a {text-decoration: none;}
+
+#top-header, nav ul {
+  display: flex;
+  padding: 0;
+  justify-content: space-around;
+}
+
+#top-header {
+  justify-content: space-between;
+  padding: 10px 0 20px;
+}
+
+.siteName {
+  font-size: 35px;
+  font-weight: 600;
+}
+
+#tools {
+  font-weight: 500;
+}
+
+nav {
+  background-color: #333333;
+  padding: 10px 0;
+}
+
+ul {
+  margin: 0;
+}
+
+nav li, nav a {
+  color: #ffffff;
+  list-style: none;
+}
+
+.copyright {margin: 30px 0 0;}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.hero-section {padding: 30px 0;}
+
+.hero {position: relative;}
+
+.hero-text-box {
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+  background-color: #ffffff88;
+  padding: 10px;
+}
+
+.hero-text-box h2, .hero-text-box li {
+  color: var(--main-accent);
+}
+
+.hero-text-box h2 {margin-bottom: 5px;}
+
+.hero-text-box ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.btn {
+  display: block;
+  padding: 10px 15px;
+  font-weight: 800;
+  width: fit-content;
+}
+
+.btn.btn-primary {
+  background-color: var(--main-accent);
+}
+
+.btn.btn-primary:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.upgrades-reviews .reviews {margin-bottom: 60px;}
+
+.upgrades-reviews .upgrades-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.upgrades-gallery .img {
+  display: grid;
+  place-content: center;
+  padding: 20px 0;
+  background-color: var(--main-accent);
+  height: calc(100% - 30px);
+  border: 3px solid #1b6f89;
+}
+.upgrades-gallery .img img {
+  max-width: 100px;
+}
+.upgrades-gallery .name {
+  text-align: center;
+}
+
+/* Everything inside of this @media tag relates to the desktop view (e.g. anything 768px or more)*/
+@media only screen and (min-width: 1024px) {
+  .upgrades-reviews {
+    display: flex;
+    gap: 30px;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+  .upgrades-reviews .reviews {margin-bottom: 0;}
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    background-size: 100px 100px;
+    background-position: 0 0, 0 0, -50px -50px, 50px 50px;
+  }
+
+  #wrapper {
+    border-radius: 10px;
+    margin-top: 1rem;
+    padding: 1vw;
+    width: 75vw;
+    max-width: 1200px;
+  }
+}
+/*
+Now, using something like Chrome Developer Tools, you can toggle between desktop and mobile view(s) to see that the changes are taking affect.
+
+2. Next, tackle something simple like the border and checkered background on the desktop view (that disappears in the mobile view). I can simple make some adjustments to a few styles:
+*/
+
+/******* Change Box Model ***************/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* ADDED FOR CONVENIENCE */
+:root {
+  --primary-background: #fff;
+  --main-accent: #01b0d3;
+}
+
+body {
+  margin: 0;
+}
+
+#wrapper {
+  width: 95%;
+  /* Added this to make sure that the background inside the wrapper is always white */
+  background-color: var(--primary-background);
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 1em;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+  /* You could use a regular image, but went with gradients */
+    background-image: linear-gradient(45deg, #000 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #000 75%),
+    linear-gradient(45deg, transparent 75%, #000 75%),
+    linear-gradient(45deg, #000 25%, #fff 25%);
+    background-size: 100px 100px;
+    background-position: 0 0, 0 0, -50px -50px, 50px 50px;
+  }
+
+  #wrapper {
+  /* This is the blueish border around the desktop version */
+    border: 5px solid var(--main-accent);
+    border-radius: 10px;
+    margin-top: 1rem;
+    padding: 1vw;
+    width: 75vw;
+    max-width: 1200px;
+    margin: 2rem auto;
+  }
+}
