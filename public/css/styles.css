@@ -67,6 +67,27 @@ img {
   height: auto;
 }
 
+main {
+  min-height: 55vh;
+}
+
+main:has(.error-pg) {
+  position: relative;
+}
+
+main:has(.error-pg):before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: url("../images/site/error-bg.png") no-repeat;
+  background-size: contain;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  aspect-ratio: 16/9;
+  opacity: 0.4;
+}
+
 .hero-section {padding: 30px 0;}
 
 .hero {position: relative;}
@@ -131,6 +152,54 @@ img {
   text-align: center;
 }
 
+#inv-display {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+#inv-display li {
+  border: 1px solid #9a9a9a;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 300px;
+}
+
+.namePrice h2 {
+  padding-top: 15px;
+  text-align: center;
+}
+
+.namePrice span {
+  display: block;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+#inv-display li img {
+  height: 160px;
+  object-fit: cover;
+}
+
+.inside-h1 {margin: 30px 0;}
+
+.vehicle-details ul {
+  list-style: none;
+  padding: 0 0 0 15px;
+}
+
+.vehicle-details li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.vehicle-details h3 {
+  margin: 10px 0 15px;
+  font-size: 25px;
+}
+
 /* Everything inside of this @media tag relates to the desktop view (e.g. anything 768px or more)*/
 @media only screen and (min-width: 1024px) {
   .upgrades-reviews {
@@ -140,6 +209,11 @@ img {
     justify-content: center;
   }
   .upgrades-reviews .reviews {margin-bottom: 0;}
+
+  .vehicles-flex {
+    display: flex;
+    gap: 3em;
+  }
 }
 
 @media only screen and (min-width: 768px) {
