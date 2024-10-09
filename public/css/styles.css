@@ -200,6 +200,53 @@ main:has(.error-pg):before {
   font-size: 25px;
 }
 
+.form-container {
+  background-color: #333333;
+  padding: 10vh 8vw;
+}
+
+.form-container label {
+  display: block;
+  color: #fff;
+}
+.form-container input {
+  height: 50px;
+  padding: 0 15px;
+  min-width: 300px;
+}
+
+.input-block {margin-bottom: 30px;}
+
+.form-container p, .form-container a {color: #fff;}
+
+#pswdBtn {
+  color: #333;
+  background: #fff;
+  display: block;
+  width: fit-content;
+  padding: 8px 5px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+#pswdBtn:hover {
+  cursor: pointer;
+  background-color: #ffffffcc;
+}
+
+input:required:invalid, input:focus:invalid {
+  border: 1px solid #ff4d4d;
+  background-image: url(/images/invalid.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+}
+
+input:required:valid {
+  border: 1px solid #19b319;
+  background-image: url(/images/valid.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+}
+
 /* Everything inside of this @media tag relates to the desktop view (e.g. anything 768px or more)*/
 @media only screen and (min-width: 1024px) {
   .upgrades-reviews {
