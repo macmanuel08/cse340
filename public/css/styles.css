@@ -247,6 +247,8 @@ input:required:valid {
   background-repeat: no-repeat;
 }
 
+.notice {margin-bottom: 30px;}
+
 /* Everything inside of this @media tag relates to the desktop view (e.g. anything 768px or more)*/
 @media only screen and (min-width: 1024px) {
   .upgrades-reviews {

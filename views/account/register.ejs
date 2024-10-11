@@ -19,15 +19,15 @@
         <p>All fields are required</p>
         <div class="input-block">
             <label for="account_firstname">First name:</label>
-            <input type="text" id="ccount_firstname" name="account_firstname" placeholder="Enter your first name" required>
+            <input type="text" id="ccount_firstname" name="account_firstname" placeholder="Enter your first name" value="<%= locals.account_firstname %>" required>
         </div>
         <div class="input-block">
             <label for="account_lastname">Last name:</label>
-            <input type="text" id="account_lastname" name="account_lastname" placeholder="Enter your last name" required>
+            <input type="text" id="account_lastname" name="account_lastname" placeholder="Enter your last name" value="<%= locals.account_lastname %>" required>
         </div>
         <div class="input-block">
             <label for="account_email">Email:</label>
-            <input type="email" id="account_email" name="account_email" placeholder="Enter your email" required>
+            <input type="email" id="account_email" name="account_email" placeholder="Enter your email" value="<%= locals.account_email %>" required>
         </div>
         <div class="input-block">
             <label for="account_password">Password:</label>
