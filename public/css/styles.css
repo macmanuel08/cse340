@@ -209,10 +209,16 @@ main:has(.error-pg):before {
   display: block;
   color: #fff;
 }
-.form-container input {
+.form-container input, .form-container select {
   height: 50px;
   padding: 0 15px;
   min-width: 300px;
+}
+
+.form-container textarea {
+  padding: 10px 15px;
+  min-width: 300px;
+  min-height: 200px;
 }
 
 .input-block {margin-bottom: 30px;}
@@ -234,15 +240,15 @@ main:has(.error-pg):before {
 }
 
 input:required:invalid, input:focus:invalid {
-  border: 1px solid #ff4d4d;
-  background-image: url(/images/invalid.png);
+  border-bottom: 3px solid #ef2020;
+  /* background-image: url(/images/invalid.png); */
   background-position: right top;
   background-repeat: no-repeat;
 }
 
 input:required:valid {
-  border: 1px solid #19b319;
-  background-image: url(/images/valid.png);
+  border-bottom: 3px solid #19b319;
+  /* background-image: url(/images/valid.png); */
   background-position: right top;
   background-repeat: no-repeat;
 }
