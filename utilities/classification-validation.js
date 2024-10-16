@@ -67,8 +67,7 @@ validate.vehicleRules = () => {
       .escape()
       .notEmpty()
       .isLength({ min: 1 })
-      .isAlpha()
-      .withMessage("Please provide a model."),
+      .withMessage("Please provide a description."),
 
       body("inv_image")
       .trim()
