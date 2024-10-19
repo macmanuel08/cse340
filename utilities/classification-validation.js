@@ -108,7 +108,6 @@ validate.vehicleRules = () => {
       .escape()
       .notEmpty()
       .isLength({ min: 1 })
-      .isAlpha()
       .withMessage("Please provide a color"),
   ]
 }
