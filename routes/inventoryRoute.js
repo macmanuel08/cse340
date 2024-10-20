@@ -9,25 +9,37 @@ const classValidate = require("../utilities/classification-validation")
 router.get("/type/:classificationId", invController.buildByClassificationId);
 router.get("/detail/:vehicleId", invController.buildVehicleByInventoryId);
 router.get("/", invController.buildVehicleManagement);
-router.get("/add-classification", invController.buildInventoryNewClassificationForm);
+router.get(
+    "/add-classification",
+    utilities.checkAuthority,
+    utilities.handleErrors(invController.buildInventoryNewClassificationForm)
+);
 router.post(
     "/add-classification",
     classValidate.classificationRules(),
     classValidate.checkClassificationData,
     utilities.handleErrors(invController.newClassification)
-)
-router.get("/inventory", utilities.handleErrors(invController.buildNewVehicleForm))
+);
+router.get(
+    "/inventory",
+    utilities.checkAuthority,
+    utilities.handleErrors(invController.buildNewVehicleForm)
+);
 router.post(
     "/inventory",
     classValidate.vehicleRules(),
     classValidate.checkVehicleData,
     utilities.handleErrors(invController.newVehicle)
-)
+);
 
-router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON));
 
 //route to edit inventory form
-router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView))
+router.get(
+    "/edit/:inv_id",
+    utilities.checkAuthority,
+    utilities.handleErrors(invController.editInventoryView)
+);
 
 // route to handle update request to the inventory
 router.post(
@@ -38,7 +50,11 @@ router.post(
 )
 
 // GET route to delete item from inventory view (for confirmation purpose)
-router.get("/delete/:inv_id", utilities.handleErrors(invController.deleteInventoryView))
+router.get(
+    "/delete/:inv_id",
+    utilities.checkAuthority,
+    utilities.handleErrors(invController.deleteInventoryView)
+);
 
 // POST route to delete item
 router.post(

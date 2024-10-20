@@ -135,6 +135,20 @@ Util.checkJWTToken = (req, res, next) => {
     req.flash("notice", "Please log in.")
     return res.redirect("/account/login")
   }
+}
+
+/* ****************************************
+ *  Check Authorization of a user
+ * ************************************ */
+Util.checkAuthority = (req, res, next) => {
+  let authorized = false;
+  if (res.locals.loggedin) authorized = res.locals.accountData.account_type === "Employee" || res.locals.accountData.account_type === "Admin";
+  if (authorized) {
+    next()
+  } else {
+    req.flash("notice", "Only authorized person can access the page.")
+    return res.redirect("/account/login")
+  }
  }
 
 /* ****************************************

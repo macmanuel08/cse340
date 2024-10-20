@@ -14,14 +14,24 @@
    </ul>
 <% } %>
 
-<ul class="inventory-list">
-    <li><a href="/inv/add-classification">Add New Classification</a></li>
-    <li><a href="/inv/inventory">Add New Vehicle</a></li>
-</ul>
+<h2>Welcome <%= locals.accountData.account_firstname %></h2>
 
-<h2>Manage Inventory</h2>
-<p>Select a classification from the list to see the items belonging to the classification.</p>
-<%- classificationSelect %>
-<table id="inventoryDisplay"></table>
+<p>You're logged in.</p>
+<a href="/account/update/<%= locals.accountData.account_id %>" class="btn btn-primary">Edit Account Information</a>
+
+<% if (locals.accountData.account_type == "Employee" || locals.accountData.account_type == "Admin") { %>
+    
+    <ul class="inventory-list mt-30">
+        <li><a href="/inv/add-classification">Add New Classification</a></li>
+        <li><a href="/inv/inventory">Add New Vehicle</a></li>
+    </ul>
+
+    <h2 class="mt-30">Manage Inventory</h2>
+    <p>Select a classification from the list to see the items belonging to the classification.</p>
+    <div class="form-container mt-30">
+        <%- classificationSelect %>
+    </div>
+    <table id="inventoryDisplay" class="mt-30"></table>
+<% } %>
 <noscript>JavaScript must be enabled to use this page.</noscript>
 <script src="../../js/inventory.js"></script>
