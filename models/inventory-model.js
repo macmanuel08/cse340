@@ -25,6 +25,24 @@ async function getInventoryByClassificationId(classification_id) {
   }
 }
 
+/* ***************************
+ *  Get all inventory items and classification_name listed in the wishlist by inv_id and account_id
+ * ************************** */
+async function getInventoryByWishlistAccountId(account_id) {
+  try {
+    const data = await pool.query(
+      `SELECT * FROM public.inventory AS i
+      JOIN public.wishlist AS w
+      ON w.inv_id = i.inv_id
+      WHERE w.account_id = $1;`,
+      [account_id]
+    )
+    return data.rows
+  } catch (error) {
+    console.error("getInventoryByWishlistAccountId error " + error)
+  }
+}
+
 async function getVehicleByInventoryId(inv_id) {
   try {
     const data = await pool.query(
@@ -112,4 +130,4 @@ async function deleteInventory(inv_id) {
   }
 }
 
-module.exports = {getClassifications, getInventoryByClassificationId, getVehicleByInventoryId, newClassification, newVehicle, updateInventory, deleteInventory };
+module.exports = {getClassifications, getInventoryByClassificationId, getVehicleByInventoryId, newClassification, newVehicle, updateInventory, deleteInventory, getInventoryByWishlistAccountId };

@@ -1,0 +1,27 @@
+<% if (title) { %>
+    <h1 class="inside-h1"><%= title %></h1>
+<% } else {
+      res.redirect('/')
+} %>
+
+<div class="form-container">
+    <p>Check the info and submit to confirm:</p>
+    <ul>
+        <li><b>Model: </b><%= locals.model%></li>
+        <li><b>Make: </b><%= locals.make%></li>
+        <li><b>Year: </b><%= locals.year%></li>
+        <li><b>Color: </b><%= locals.color%></li>
+    </ul>
+    <form id="addWishlistForm" action="/wishlist/add" method="post">
+        <div class="mt-30">
+            <button type="submit" name="submit" class="btn btn-secondary">Add To Wishlist</button>
+        </div>
+        
+        <input type="hidden" name="account_id"
+            <% if(locals.account_id) { %> value="<%= locals.account_id %>"
+        <% } %>>
+        <input type="hidden" name="inv_id"
+            <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+        <% } %>>
+    </form>
+</div>

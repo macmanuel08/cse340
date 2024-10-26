@@ -7,3 +7,20 @@
 <%# messages() %>
 
 <%- details %>
+
+<% if (logged_in) { %>
+    <% if (!addedToWishlist) { %>
+        <div class="mt-30">
+            <a href="/wishlist/add/<%= inv_id %>" class="btn btn-primary">Add To Wishlist</a>
+        </div>
+    <% } else { %>
+        <div class="mt-30">
+            <a href="/wishlist/remove/<%= inv_id %>" class="btn btn-primary">Remove From Wishlist</a>
+        </div>
+    <% } %>
+<% } else { %>
+    <div class="mt-30">
+        <p>Log in to add to wishlist</p>
+        <a href="/account/login" class="btn btn-primary">Log In</a>
+    </div>
+<% } %>

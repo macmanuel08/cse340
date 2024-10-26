@@ -19,6 +19,9 @@
 <p>You're logged in.</p>
 <a href="/account/update/<%= locals.accountData.account_id %>" class="btn btn-primary">Edit Account Information</a>
 
+<h3 class="mt-30">View Your Wishlist</h3>
+<a href="/wishlist" class="btn btn-primary">Wishlist</a>
+
 <% if (locals.accountData.account_type == "Employee" || locals.accountData.account_type == "Admin") { %>
     
     <ul class="inventory-list mt-30">

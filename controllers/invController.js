@@ -1,4 +1,5 @@
 const invModel = require("../models/inventory-model")
+const wishlistModel = require("../models/wishlist-model")
 const utilities = require("../utilities/")
 
 const invCont = {}
@@ -25,14 +26,21 @@ invCont.buildByClassificationId = async function (req, res, next) {
 
 invCont.buildVehicleByInventoryId = async function (req, res, next) {
   const vehicle_id = req.params.vehicleId
+  const account_id = res.locals.accountData.account_id
   const data = await invModel.getVehicleByInventoryId(vehicle_id);
   const details = await utilities.buildVehicleDetails(data[0])
   let nav = await utilities.getNav()
+  const addedToWishlistQuery = await wishlistModel.addedToWishlist(vehicle_id, account_id)
+  const addedToWishlist = addedToWishlistQuery.rows.length === 1
+  const loggedIn = res.locals.loggedin
   const vehicleTitle = data[0].inv_year + ' ' + data[0].inv_make + ' ' + data[0].inv_model
   res.render("./inventory/vehicle", {
       title: vehicleTitle,
       nav,
-      details
+      details,
+      inv_id: vehicle_id,
+      logged_in: loggedIn,
+      addedToWishlist
   })
 }
 

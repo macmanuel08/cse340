@@ -228,7 +228,9 @@ main:has(.error-pg):before {
 
 .input-block {margin-bottom: 30px;}
 
-.form-container p, .form-container a {color: #fff;}
+.form-container p, .form-container a, .form-container li {color: #fff;}
+
+.form-container li {list-style: none;}
 
 #pswdBtn {
   color: #333;
